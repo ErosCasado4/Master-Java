@@ -37,7 +37,11 @@ Formas de usar clase calendar, date, SimpleDateFormat y comparar fechas
             }
 
         } catch (ParseException e) {
-            throw new RuntimeException(e);
+            //e.printStackTrace();
+            System.err.println("La fecha tiene un formato incorrecto: " + e.getMessage());
+            System.err.println("El formato debe ser 'dd-MM-yyyy");
+            //System.exit(1);
+            main(args);
         }
     }
 }
