@@ -1,0 +1,12 @@
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# Archivos compilados
+out/
+
+# Maven
+target/
+
+# Gradle
+build/
