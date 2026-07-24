@@ -20,13 +20,19 @@ Para cuando tenemos los metodos publicos lo hacemos asi. En privado, como abajo.
         mercedes.setCilindrada(3.5);
         System.out.println("Todo sobre este vehiculo: Fabricante " + mercedes.getFabricante() + ", modelo " + mercedes.getModelo() + ", color " + mercedes.getColor() + " ,cilindrada " + mercedes.getCilindrada());
 
-        Automovil bmw = new Automovil("BMW","Serie M3");
-        bmw.setColor("Azul");
+        Automovil bmw = new Automovil("BMW","Serie M3","Azul");
         bmw.setCilindrada(3.0);
         System.out.println("Todo sobre este vehiculo: Fabricante " + bmw.getFabricante() + ", modelo " + bmw.getModelo() + ", color " + bmw.getColor() + " ,cilindrada " + bmw.getCilindrada());
 
+        Automovil seat = new Automovil("Seat", "Leon", "Negro perlado", 1.8,48);
+        Automovil seat2 = new Automovil("Seat", "Leon", "Negro perlado", 1.8,48);
+
+        System.out.println("Son iguales? " + (seat == seat2));
+        System.out.println("Son iguales?(usando equals) " + (seat.equals(seat2)));
+
         System.out.println(mercedes.detalle());
         System.out.println(bmw.detalle());
+        System.out.println(seat.detalle());
 
         System.out.println(mercedes.frenar());
         System.out.println(bmw.frenar());
@@ -43,6 +49,7 @@ Para cuando tenemos los metodos publicos lo hacemos asi. En privado, como abajo.
         System.out.println();
         System.out.println("Kilometros por litro: " + mercedes.calcularConsumo(650, 92));
         System.out.println("Kilometros por litro: " + bmw.calcularConsumo(650, 86));
+        System.out.println("Kilometros por litro: " + seat.calcularConsumo(650, 86));
 
 
 

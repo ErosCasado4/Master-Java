@@ -8,10 +8,27 @@ public class Automovil {
 
    //Podemos crear el constructor con el generador, sea pasandole parametros(obliga a que en el main cuando invoquemos si o si por parametro tenemos que poner los parametros) o vacio.
    public Automovil(String fabricante, String modelo){
-       fabricante = this.fabricante;
-       modelo = this.modelo;
+       this.fabricante = fabricante;
+       this.modelo = modelo;
    }
 
+    public Automovil() {
+    }
+//De esta forma en adelante, y como ejemplo, vemos como reutilizar otros constructores y reutilizar codigo. en vez de referenciar a cada metodo, referenciamos dentro del objeto con los seleccionados en el constructor anterior
+    public Automovil(String fabricante, String modelo, String color) {
+        this(fabricante, modelo);
+        this.color = color;
+    }
+
+    public Automovil(String fabricante, String modelo, String color, double cilindrada) {
+        this(fabricante,modelo,color);
+        this.cilindrada = cilindrada;
+    }
+
+    public Automovil(String fabricante, String modelo, String color, double cilindrada, int deposito) {
+        this(fabricante,modelo,color,cilindrada);
+        this.deposito = deposito;
+    }
 // Esto es una forma de crear los Getters y Setters manualmente. Podemos hacerlos mucho mas facil dando al boton dereecho -> generate y ahi.
 //   public String getFabricante(){
 //       return this.fabricante;
@@ -114,4 +131,12 @@ public class Automovil {
         return km/(deposito*(porcentajeDeposito/100f));
     }
 
+    /*
+    Usando en el generador en el Override Methods podemos usar el metodo equals para el objeto que queramos y las clases que queramos comparar como por aqui abajo
+     */
+    @Override
+    public boolean equals(Object obj) {
+       Automovil a = (Automovil)obj;
+        return (this.fabricante.equals(a.getFabricante()) && this.modelo.equals(a.getModelo()));
+    }
 }
