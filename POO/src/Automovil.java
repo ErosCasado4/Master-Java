@@ -136,7 +136,16 @@ public class Automovil {
      */
     @Override
     public boolean equals(Object obj) {
+//Validaciones necesarias para evitar excepciones: Si en el main invocamos un obj automovil pero sin nada por parametro, retornará null. Con las validaciones dará false, al igual que si comparamos con otro objeto diferente.
+        if (this == obj){
+            return true;
+        }
+        if (!( obj instanceof Automovil)){
+            return false;
+        }
        Automovil a = (Automovil)obj;
-        return (this.fabricante.equals(a.getFabricante()) && this.modelo.equals(a.getModelo()));
+        return (this.fabricante != null && this.modelo != null &&
+                this.fabricante.equals(a.getFabricante())
+                && this.modelo.equals(a.getModelo()));
     }
 }

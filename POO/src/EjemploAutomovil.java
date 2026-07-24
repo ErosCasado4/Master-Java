@@ -1,3 +1,5 @@
+import java.util.Date;
+
 public class EjemploAutomovil {
     public static void main(String[] args) {
 /*
@@ -14,6 +16,7 @@ Para cuando tenemos los metodos publicos lo hacemos asi. En privado, como abajo.
 //       bmw.modelo = "Serie M3";
 //       bmw.color = "Azul";
 //       bmw.cilindrada = 3.0;
+        Date fecha = new Date();
 
         Automovil mercedes = new Automovil("Mercedes-Benz","GLC Coupe 43");
         mercedes.setColor("Plata");
@@ -26,9 +29,13 @@ Para cuando tenemos los metodos publicos lo hacemos asi. En privado, como abajo.
 
         Automovil seat = new Automovil("Seat", "Leon", "Negro perlado", 1.8,48);
         Automovil seat2 = new Automovil("Seat", "Leon", "Negro perlado", 1.8,48);
+        Automovil auto = new Automovil();
 
         System.out.println("Son iguales? " + (seat == seat2));
         System.out.println("Son iguales?(usando equals) " + (seat.equals(seat2)));
+        System.out.println("Son iguales?(usando equals) " + (auto.equals(seat2)));
+        System.out.println("Son iguales?(usando equals) " + (auto.equals(fecha)));
+
 
         System.out.println(mercedes.detalle());
         System.out.println(bmw.detalle());
