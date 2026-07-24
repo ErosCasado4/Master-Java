@@ -1,18 +1,29 @@
 public class EjemploAutomovil {
     public static void main(String[] args) {
+/*
+Para cuando tenemos los metodos publicos lo hacemos asi. En privado, como abajo.
+ */
+//        Automovil mercedes = new Automovil();
+//       mercedes.fabricante = "Mercedes-Benz";
+//       mercedes.modelo = "GLC Coupe 43";
+//       mercedes.color = "Plata";
+//       mercedes.cilindrada = 3.5;
+//
+//       Automovil bmw = new Automovil();
+//       bmw.fabricante = "BMW";
+//       bmw.modelo = "Serie M3";
+//       bmw.color = "Azul";
+//       bmw.cilindrada = 3.0;
 
-        Automovil mercedes = new Automovil();
-       mercedes.fabricante = "Mercedes-Benz";
-       mercedes.modelo = "GLC Coupe 43";
-       mercedes.color = "Plata";
-       mercedes.cilindrada = 3.5;
+        Automovil mercedes = new Automovil("Mercedes-Benz","GLC Coupe 43");
+        mercedes.setColor("Plata");
+        mercedes.setCilindrada(3.5);
+        System.out.println("Todo sobre este vehiculo: Fabricante " + mercedes.getFabricante() + ", modelo " + mercedes.getModelo() + ", color " + mercedes.getColor() + " ,cilindrada " + mercedes.getCilindrada());
 
-       Automovil bmw = new Automovil();
-       bmw.fabricante = "BMW";
-       bmw.modelo = "Serie M3";
-       bmw.color = "Azul";
-       bmw.cilindrada = 3.0;
-
+        Automovil bmw = new Automovil("BMW","Serie M3");
+        bmw.setColor("Azul");
+        bmw.setCilindrada(3.0);
+        System.out.println("Todo sobre este vehiculo: Fabricante " + bmw.getFabricante() + ", modelo " + bmw.getModelo() + ", color " + bmw.getColor() + " ,cilindrada " + bmw.getCilindrada());
 
         System.out.println(mercedes.detalle());
         System.out.println(bmw.detalle());
