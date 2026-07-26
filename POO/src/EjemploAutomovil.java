@@ -19,16 +19,16 @@ Para cuando tenemos los metodos publicos lo hacemos asi. En privado, como abajo.
         Date fecha = new Date();
 
         Automovil mercedes = new Automovil("Mercedes-Benz","GLC Coupe 43");
-        mercedes.setColor("Plata");
+        mercedes.setColor(Color.PLATA);
         mercedes.setCilindrada(3.5);
         System.out.println("Todo sobre este vehiculo: Fabricante " + mercedes.getFabricante() + ", modelo " + mercedes.getModelo() + ", color " + mercedes.getColor() + " ,cilindrada " + mercedes.getCilindrada());
 
-        Automovil bmw = new Automovil("BMW","Serie M3","Azul");
+        Automovil bmw = new Automovil("BMW","Serie M3",Color.AZUL);
         bmw.setCilindrada(3.0);
         System.out.println("Todo sobre este vehiculo: Fabricante " + bmw.getFabricante() + ", modelo " + bmw.getModelo() + ", color " + bmw.getColor() + " ,cilindrada " + bmw.getCilindrada());
 
-        Automovil seat = new Automovil("Seat", "Leon", "Negro perlado", 1.8,48);
-        Automovil seat2 = new Automovil("Seat", "Leon", "Negro perlado", 1.8,48);
+        Automovil seat = new Automovil("Seat", "Leon", Color.NEGRO, 1.8,48);
+        Automovil seat2 = new Automovil("Seat", "Leon", Color.NEGRO, 1.8,48);
         Automovil auto = new Automovil();
 
         System.out.println("Son iguales? " + (seat == seat2));
@@ -40,6 +40,9 @@ Para cuando tenemos los metodos publicos lo hacemos asi. En privado, como abajo.
         System.out.println(mercedes.detalle());
         System.out.println(bmw.detalle());
         System.out.println(seat.detalle());
+        //al pasarle en la clase el toString los parametros que queremos implementar, al hacer el sout imprimirá tanto invocando al objeto con objeto+tostring las clases referenciadas en el tostring
+        System.out.println(seat);
+        System.out.println(seat.toString());
 
         System.out.println(mercedes.frenar());
         System.out.println(bmw.frenar());
