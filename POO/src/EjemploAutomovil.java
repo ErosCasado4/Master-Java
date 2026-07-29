@@ -18,17 +18,21 @@ Para cuando tenemos los metodos publicos lo hacemos asi. En privado, como abajo.
 //       bmw.cilindrada = 3.0;
         Date fecha = new Date();
 
+        Motor motorMercedes = new Motor(3.5, 249, "Diesel");
+        Deposito depositoMercedes = new Deposito(65);
         Automovil mercedes = new Automovil("Mercedes-Benz","GLC Coupe 43");
         mercedes.setColor(Color.PLATA);
-        mercedes.setCilindrada(3.5);
-        System.out.println("Todo sobre este vehiculo: Fabricante " + mercedes.getFabricante() + ", modelo " + mercedes.getModelo() + ", color " + mercedes.getColor() + " ,cilindrada " + mercedes.getCilindrada());
+        mercedes.setMotor(motorMercedes);
+        mercedes.setDeposito(depositoMercedes);
+        System.out.println("Todo sobre este vehiculo: Fabricante " + mercedes.getFabricante() + ", modelo " + mercedes.getModelo() + ", color " + mercedes.getColor() + " ,cilindrada " + mercedes.getMotor().getCilindrada());
 
         Automovil bmw = new Automovil("BMW","Serie M3",Color.AZUL);
-        bmw.setCilindrada(3.0);
-        System.out.println("Todo sobre este vehiculo: Fabricante " + bmw.getFabricante() + ", modelo " + bmw.getModelo() + ", color " + bmw.getColor() + " ,cilindrada " + bmw.getCilindrada());
+        bmw.setMotor(new Motor(3.0, 215, "Gasolina"));
+        bmw.setDeposito(new Deposito(60));
+        System.out.println("Todo sobre este vehiculo: Fabricante " + bmw.getFabricante() + ", modelo " + bmw.getModelo() + ", color " + bmw.getColor() + " ,cilindrada " + bmw.getMotor().getCilindrada());
 
-        Automovil seat = new Automovil("Seat", "Leon", Color.NEGRO, 1.8,48);
-        Automovil seat2 = new Automovil("Seat", "Leon", Color.NEGRO, 1.8,48);
+        Automovil seat = new Automovil("Seat", "Leon", Color.NEGRO, new Motor(2.0, 185, "Diesel"), new Deposito(45));
+        Automovil seat2 = new Automovil("Seat", "Leon", Color.NEGRO, new Motor(1.8, 125, "Gasolina"), new Deposito(45));
         Automovil auto = new Automovil();
 
         System.out.println("Son iguales? " + (seat == seat2));

@@ -4,8 +4,10 @@ public class Automovil {
    private String fabricante;
    private String modelo;
    private Color color;
-   private double cilindrada;
-   private int deposito = 45;
+   private Motor motor;
+   private Deposito deposito;
+   private Persona conductor;
+   private Rueda[] ruedas;
 
    private TipoAutomovil tipo;
 
@@ -40,16 +42,22 @@ public class Automovil {
         this.color = color;
     }
 
-    public Automovil(String fabricante, String modelo, Color color, double cilindrada) {
+    public Automovil(String fabricante, String modelo, Color color, Motor motor) {
         this(fabricante,modelo,color);
-        this.cilindrada = cilindrada;
+        this.motor = motor;
     }
 
-    public Automovil(String fabricante, String modelo, Color color, double cilindrada, int deposito) {
-        this(fabricante,modelo,color,cilindrada);
-        this.deposito = deposito;
+    public Automovil(String fabricante, String modelo, Color color, Motor motor, Deposito deposito) {
+        this(fabricante,modelo,color,motor);
+        this.motor = motor;
     }
-// Esto es una forma de crear los Getters y Setters manualmente. Podemos hacerlos mucho mas facil dando al boton dereecho -> generate y ahi.
+
+    public Automovil(String fabricante, String modelo, Color color, Motor motor, Deposito deposito, Persona conductor, Rueda[] ruedas) {
+        this(fabricante,modelo,color,motor,deposito);
+        this.conductor = conductor;
+        this.ruedas = ruedas;
+    }
+    // Esto es una forma de crear los Getters y Setters manualmente. Podemos hacerlos mucho mas facil dando al boton dereecho -> generate y ahi.
 //   public String getFabricante(){
 //       return this.fabricante;
 //    }
@@ -118,22 +126,6 @@ public class Automovil {
         this.color = color;
     }
 
-    public double getCilindrada() {
-        return cilindrada;
-    }
-
-    public void setCilindrada(double cilindrada) {
-        this.cilindrada = cilindrada;
-    }
-
-    public int getDeposito() {
-        return deposito;
-    }
-
-    public void setDeposito(int deposito) {
-        this.deposito = deposito;
-    }
-
     public static Color getColorPatente() {
         return colorPatente;
     }
@@ -154,6 +146,38 @@ public class Automovil {
         this.tipo = tipo;
     }
 
+    public Motor getMotor() {
+        return motor;
+    }
+
+    public void setMotor(Motor motor) {
+        this.motor = motor;
+    }
+
+    public Deposito getDeposito() {
+        return deposito;
+    }
+
+    public void setDeposito(Deposito deposito) {
+        this.deposito = deposito;
+    }
+
+    public Persona getConductor() {
+        return conductor;
+    }
+
+    public void setConductor(Persona conductor) {
+        this.conductor = conductor;
+    }
+
+    public Rueda[] getRuedas() {
+        return ruedas;
+    }
+
+    public void setRuedas(Rueda[] ruedas) {
+        this.ruedas = ruedas;
+    }
+
     public String detalle(){
 //Podemos obtener los metodos referenciandolas(es indiferente en este caso que sea privado ya que es propio de la misma clase) o usando los get+metodo
         return  "id = " + this.id +
@@ -162,7 +186,7 @@ public class Automovil {
                 "\nModelo = " + this.modelo +
                 "\nColor = " + this.color +
                 "\nColorPatente = " + colorPatente +//Al ser static este metodo se referencia sin referenciar al objeto this. solo al metodo, o concatenando con Automovil(objeto del que se crea)
-                "\nCilindrada = " + this.cilindrada;
+                "\nCilindrada = " + this.motor.getCilindrada();
 
     }
 
@@ -181,10 +205,10 @@ public class Automovil {
     }
 
     public float calcularConsumo(int km, float porcentajeDeposito){
-        return km/(deposito*porcentajeDeposito);
+        return km/(deposito.getCapacidadDeposito()*porcentajeDeposito);
     }
     public float calcularConsumo(int km, int porcentajeDeposito){
-        return km/(deposito*(porcentajeDeposito/100f));
+        return km/(deposito.getCapacidadDeposito()*(porcentajeDeposito/100f));
     }
     public static float calcularConsumoEstatico(int km, int porcentajeDeposito){
         return km/(depositoEstatico*(porcentajeDeposito/100f));

@@ -4,23 +4,22 @@ public class EjemploAutomovilEnum {
 
         Automovil.setDepositoEstatico(45);
 
+        Motor motorMercedes = new Motor(3.5, 249, "Diesel");
+        Deposito depositoMercedes = new Deposito(65);
         Automovil mercedes = new Automovil("Mercedes-Benz","GLC Coupe 43");
         mercedes.setColor(Color.BLANCO);
-        mercedes.setCilindrada(3.5);
+        mercedes.setMotor(motorMercedes);
+        mercedes.setDeposito(depositoMercedes);
         mercedes.setTipo(TipoAutomovil.SUV);
-        System.out.println("Todo sobre este vehiculo: Fabricante " + mercedes.getFabricante() + ", modelo " + mercedes.getModelo() + ", color " + mercedes.getColor() + " ,cilindrada " + mercedes.getCilindrada());
+        System.out.println("Todo sobre este vehiculo: Fabricante " + mercedes.getFabricante() + ", modelo " + mercedes.getModelo() + ", color " + mercedes.getColor() + " ,cilindrada " + mercedes.getMotor().getCilindrada());
 
         Automovil bmw = new Automovil("BMW","Serie M3",Color.AZUL);
-        bmw.setCilindrada(3.0);
+        bmw.setMotor(new Motor(3.0, 215, "Gasolina"));
+        bmw.setDeposito(new Deposito(60));
         bmw.setTipo(TipoAutomovil.BERLINA);
-        System.out.println("Todo sobre este vehiculo: Fabricante " + bmw.getFabricante() + ", modelo " + bmw.getModelo() + ", color " + bmw.getColor() + " ,cilindrada " + bmw.getCilindrada());
+        System.out.println("Todo sobre este vehiculo: Fabricante " + bmw.getFabricante() + ", modelo " + bmw.getModelo() + ", color " + bmw.getColor() + " ,cilindrada " + bmw.getMotor().getCilindrada());
 
-        Automovil seat = new Automovil("Seat", "Leon", Color.NEGRO, 1.8,48);
-        seat.setTipo(TipoAutomovil.HATCHBACK);
-        Automovil seat2 = new Automovil("Seat", "Leon", Color.ROJO, 1.8,48);
 
-        seat2.setTipo(TipoAutomovil.HATCHBACK);
-        seat2.setColor(Color.AZUL);
         Automovil.setColorPatente(Color.NEGRO);
         Automovil auto = new Automovil();
         TipoAutomovil tipo = mercedes.getTipo();
