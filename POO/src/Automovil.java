@@ -7,6 +7,8 @@ public class Automovil {
    private double cilindrada;
    private int deposito = 45;
 
+   private TipoAutomovil tipo;
+
    private static Color colorPatente = Color.BLANCO;
    private static int depositoEstatico = 38;
    private static int ultimoId;
@@ -80,6 +82,10 @@ public class Automovil {
 //    }
 
 
+    public TipoAutomovil getTipo() {
+        return tipo;
+    }
+
     public int getId() {
         return id;
     }
@@ -144,10 +150,15 @@ public class Automovil {
         Automovil.depositoEstatico = depositoEstatico;
     }
 
+    public void setTipo(TipoAutomovil tipo) {
+        this.tipo = tipo;
+    }
+
     public String detalle(){
 //Podemos obtener los metodos referenciandolas(es indiferente en este caso que sea privado ya que es propio de la misma clase) o usando los get+metodo
         return  "id = " + this.id +
                 "\nFabricante = " + this.fabricante +
+                "\nTipo de vehículo = " + this.getTipo().getDescpricion() +
                 "\nModelo = " + this.modelo +
                 "\nColor = " + this.color +
                 "\nColorPatente = " + colorPatente +//Al ser static este metodo se referencia sin referenciar al objeto this. solo al metodo, o concatenando con Automovil(objeto del que se crea)
