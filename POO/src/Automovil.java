@@ -49,7 +49,7 @@ public class Automovil {
 
     public Automovil(String fabricante, String modelo, Color color, Motor motor, Deposito deposito) {
         this(fabricante,modelo,color,motor);
-        this.motor = motor;
+        this.deposito = deposito;
     }
 
     public Automovil(String fabricante, String modelo, Color color, Motor motor, Deposito deposito, Persona conductor, Rueda[] ruedas) {
@@ -155,6 +155,9 @@ public class Automovil {
     }
 
     public Deposito getDeposito() {
+        if (deposito==null){
+            this.deposito = new Deposito();
+        }
         return deposito;
     }
 
@@ -180,14 +183,21 @@ public class Automovil {
 
     public String detalle(){
 //Podemos obtener los metodos referenciandolas(es indiferente en este caso que sea privado ya que es propio de la misma clase) o usando los get+metodo
-        return  "id = " + this.id +
-                "\nFabricante = " + this.fabricante +
-                "\nTipo de vehículo = " + this.getTipo().getDescpricion() +
-                "\nModelo = " + this.modelo +
-                "\nColor = " + this.color +
-                "\nColorPatente = " + colorPatente +//Al ser static este metodo se referencia sin referenciar al objeto this. solo al metodo, o concatenando con Automovil(objeto del que se crea)
-                "\nCilindrada = " + this.motor.getCilindrada();
+        String detalle =  "id = " + this.id +
+                "\nFabricante = " + this.getFabricante() +
+                "\nModelo = " + this.getModelo();
 
+        if (this.getTipo() != null) {
+            detalle += "\nTipo de vehículo = " + this.getTipo().getDescpricion();
+        }
+
+         detalle += "\nColor = " + this.color +
+                "\nColorPatente = " + colorPatente;//Al ser static este metodo se referencia sin referenciar al objeto this. solo al metodo, o concatenando con Automovil(objeto del que se crea)
+
+        if (this.motor != null) {
+        detalle +="\nCilindrada = " + this.motor.getCilindrada();
+        }
+        return detalle;
     }
 
     public String acelerar(int rpm){
@@ -205,10 +215,10 @@ public class Automovil {
     }
 
     public float calcularConsumo(int km, float porcentajeDeposito){
-        return km/(deposito.getCapacidadDeposito()*porcentajeDeposito);
+        return km/(this.getDeposito().getCapacidadDeposito()*porcentajeDeposito);
     }
     public float calcularConsumo(int km, int porcentajeDeposito){
-        return km/(deposito.getCapacidadDeposito()*(porcentajeDeposito/100f));
+        return km/(this.getDeposito().getCapacidadDeposito()*(porcentajeDeposito/100f));
     }
     public static float calcularConsumoEstatico(int km, int porcentajeDeposito){
         return km/(depositoEstatico*(porcentajeDeposito/100f));
@@ -238,7 +248,7 @@ public class Automovil {
                 "Fabricante: " + fabricante + ", " +
                 "Modelo: " + modelo + ", " +
                 "Color: " + color + ", " +
-                "Cilindrada: " + cilindrada +
+                "Cilindrada: " + motor.getCilindrada() +
                 "Deposito: " + deposito +
                 '}';
     }

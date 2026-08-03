@@ -21,7 +21,7 @@ public class EjemploAutomovilStatic {
 
         Automovil seat = new Automovil("Seat", "Leon", Color.NEGRO, new Motor(2.0, 185, "Diesel"), new Deposito(45));
         seat.setTipo(TipoAutomovil.HATCHBACK);
-        Automovil seat2 = new Automovil("Seat", "Leon", Color.ROJO,  new Motor(1.8, 125, "Gasolina"), new Deposito(45));
+        Automovil seat2 = new Automovil("Seat", "Leon", Color.ROJO,  new Motor(1.8, 125, "Gasolina"));
 
         seat2.setTipo(TipoAutomovil.HATCHBACK);
         seat2.setColor(Color.AZUL);
@@ -37,6 +37,8 @@ public class EjemploAutomovilStatic {
         System.out.println("Automovil.getColorPatente() = " + Automovil.getColorPatente());
         System.out.println("Kilometros por litros: " + Automovil.calcularConsumoEstatico(350, 68));
         System.out.println("Tipo de vehiculo Mercedes GLC Coupe: " + tipoMercedes.getNombre() + ". Descripcion del vehiculo: " + tipoMercedes.getDescpricion() + ". Cantidad de puertas: " + tipoMercedes.getNumeroPuerta());
+
+        System.out.println(seat2.calcularConsumo(350, 80));
 
     }
 }
