@@ -197,6 +197,18 @@ public class Automovil {
         if (this.motor != null) {
         detalle +="\nCilindrada = " + this.motor.getCilindrada();
         }
+
+        if (this.conductor != null){
+        detalle += "\nConductor del automóvil: " + this.getConductor();
+        }
+
+        if (this.ruedas != null){
+            detalle += "\nRuedas del automóvil";
+            for (Rueda r: this.getRuedas()){
+               detalle += "\nFabricante: " + r.getFabricante() + ", ancho de neumático: " + r.getAncho() + ",  perfil de neumático: " + r.getPerfil() +
+                        ", radio de llanta: " + r.getRadio() + ", tipo de llanta: " + r.getTipoLlanta();
+            }
+        }
         return detalle;
     }
 
